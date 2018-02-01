@@ -9,6 +9,22 @@ uint16_t CS;
 uint16_t nbChannel = 0;
 bool mcpSet = 0;
 
+void mcp320xSet(uint16_t inputConf, uint16_t mcpType, uint16_t slavePin) {
+  if (inputConfiguration <= 1) {
+    inputConfiguration = inputConf;
+  } else {
+    inputConfiguration = 0;
+  }
+  CS = slavePin;
+  pinMode(CS, OUTPUT);
+  digitalWrite(CS, HIGH);
+  nbChannel = mcpType - 1;
+  mcpSet = 1;
+  SPI.begin();
+  SPI.beginTransaction(SPISettings(14000000, MSBFIRST, SPI_MODE0));
+  return;
+}
+
 int16_t mcp320xRead(uint8_t channel) {
   int16_t ans = 0;
   if (mcpSet) {
@@ -28,15 +44,3 @@ int16_t mcp320xRead(uint8_t channel) {
 }
 
 
-void mcp320xSet(uint16_t inputConf, uint16_t mcpType, uint16_t slavePin) {
-  if (inputConfiguration <= 1) {
-    inputConfiguration = inputConf;
-  } else {
-    inputConfiguration = 0;
-  }
-  CS = slavePin;
-  pinMode(CS, OUTPUT);
-  digitalWrite(CS, HIGH);
-  nbChannel = mcpType - 1;
-  mcpSet = 1;
-}
