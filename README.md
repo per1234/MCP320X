@@ -12,3 +12,6 @@ mcp320xSet(uint16_t inputConf, uint16_t mcpType, uint16_t slavePin);
 
   slavePin : chose your SPI CS pin
 
+int16_t mcp320xRead(uint8_t channel);
+
+channel : chose the channel for the MCP to read the 12bit analogic value
