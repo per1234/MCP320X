@@ -42,5 +42,3 @@ int16_t mcp320xRead(uint8_t channel) {
   }
   return ans;
 }
-
-
