@@ -1,4 +1,4 @@
-# MCP320X
+# **MCP320X**
 Arduino library for MCP3204 and MCP3208
 
 ## List of Function
