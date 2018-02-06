@@ -58,7 +58,7 @@ void mcp320xInit(InputType readType, Type mcpType, uint16_t slavePin) {
 int16_t mcp320xRead(uint8_t channel) {
   int16_t ans = 0;
   if (mcpSet) {
-    if ((channel <= nbChannel) && (channel >= 0)) {
+    if (channel <= nbChannel) {
       uint8_t SEND1 = 0x00 | (START << 2) | (inputConfiguration << 1) | (channel >> 2);
       uint16_t SEND2 = 0x00 | (channel << 14);
       digitalWrite(CS, LOW);
