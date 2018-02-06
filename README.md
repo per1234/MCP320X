@@ -2,9 +2,9 @@
 Arduino library for **MCP3204** and **MCP3208**
 
 ## List of Function
-### mcp320xSet(inputConf, mcpType, slavePin)
-* inputConf : chose if you want Single-ended or differential value 
- <br>You have to chose between SINGLE and DIFF
+### mcp320xInit(readType, mcpType, slavePin);
+* readType : chose if you want Single-ended or differential value 
+ <br>You have to chose between SINGLE or DIFFERENTIAL
 * mcpType : chose the device you use, chose MCP3204 or MCP3208.
 * slavePin : chose your SPI CS pin
 
